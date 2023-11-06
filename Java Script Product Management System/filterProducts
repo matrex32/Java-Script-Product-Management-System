@@ -1,0 +1,17 @@
+// Add event delegation to listen for delete action within the product list
+function addDeleteFunctionality() {
+    const productList = document.querySelector('#root');
+    productList.addEventListener('click', function(event) {
+        if (event.target.className === 'delete') {
+            const productId = event.target.dataset.id;
+            deleteProduct(productId);
+        }
+    });
+}
+
+// Initialize functionalities on window load
+window.addEventListener('load', () => {
+    startRendering();
+    addFilterFunctionality();
+    addDeleteFunctionality();
+});
